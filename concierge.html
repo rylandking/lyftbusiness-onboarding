@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151376211-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-151376211-1');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Lyft Business</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+  </head>
+
+  <body id="page-top" class="sidebar-toggled">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          
+        >
+          <div class="sidebar-brand-text mx-3">
+            <img
+              class="img-fluid px-3 px-sm-4 mt-4 mb-4"
+              style="width: 100px; "
+              src="img/lyft-logo-white.png"
+              alt=""
+            />
+          </div>
+        </a>
+
+        <!-- Nav Item - Dashboard -->
+        <li id="index-nav" class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Get Started</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          Products
+        </div>
+
+        <!-- Nav Item - Business Travel -->
+        <li id="business-travel-nav" class="nav-item">
+          <a class="nav-link font-weight-bold" href="#">
+              <i class="fas fa-fw fa-suitcase"></i>
+            <span>BUSINESS TRAVEL</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Concierge -->
+        <li id="concierge-nav" class="nav-item active">
+          <a class="nav-link font-weight-bold" href="#">
+            <i class="fas fa-fw fa-headset"></i>
+            <span>CONCIERGE</span></a
+          >
+        </li>
+
+        <!-- Nav Item - Credits --> 
+        <li id="credits-nav" class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-coins"></i>
+            <span>CREDITS</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block" />
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav
+            class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+          >
+            <!-- Sidebar Toggle (Topbar) -->
+            <button
+              id="sidebarToggleTop"
+              class="btn btn-link d-md-none rounded-circle mr-3"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Topbar Product -->
+            <form class="form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+              <div class="row no-gutters align-items-center">
+                <div class="text-center pt-2">
+                    <img class="img-fluid px-sm-4 mt-3 mb-4" style="height: 2.5rem;" src="img/undraw_laravel_and_vue_59tp.svg" alt="">
+                    <span class="h5 text-dark">Concierge</span>
+                </div>
+              </div>
+            </form>
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+              <div class="topbar-divider d-none d-sm-block"></div>
+
+              <!-- Nav Item - User Information -->
+              <li class="nav-item dropdown no-arrow">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="userDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                  </span>
+                  <span id="welcome" class="text-uppercase small font-weight-bold text-gray-600"></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Modal to collect account information -->
+            <div id="init-acct-info" class="modal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title font-weight-bold text-primary mt-1">Please enter your information</h5>
+                  </div>
+                  <div id="incomplete-form-alert" class="alert alert-danger mx-3 mt-3 mb-0 d-none" role="alert">
+                      Please complete the form.
+                  </div>
+                  <div id="completed-form-alert" class="alert alert-success mx-3 mt-3 mb-0 d-none" role="alert">
+                      Done! Thanks.
+                  </div>
+                  <div class="modal-body mx-3">
+                      <div class="input-group mb-3">
+                          <div class="row input-group-prepend">
+                            <span class="input-group-text">First name</span>
+                          </div>
+                          <input id="first-name" type="text" class="form-control">
+                      </div>
+                      <div class="input-group mb-3">
+                          <div class="row input-group-prepend">
+                            <span class="input-group-text">Email</span>
+                          </div>
+                          <input id="email" type="text" class="form-control">
+                      </div>
+                      <div class="input-group mb-3">
+                          <div class="row input-group-prepend">
+                            <span class="input-group-text">Mobile number</span>
+                          </div>
+                          <input id="phone" type="text" class="form-control">
+                      </div>
+                      <div class="input-group mb-3">
+                          <div class="row input-group-prepend">
+                            <span class="input-group-text">Company name</span>
+                          </div>
+                          <input id="company" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button id="save-init-acct-info" type="button" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End of Modal to collect account information -->
+
+            <!-- Page Headings -->
+            <div class="row justify-content-md-center">
+              <div class="col-lg-10">
+                  <div id="success-alert-manual-build" class="alert alert-success mx-1 my-3 mb-0 d-none" role="alert">
+                      Got it! We're building your account now. We'll email it to you within 24 business hours.
+                  </div>
+                  <div id="success-alert-enable-account" class="alert alert-success mx-1 my-3 mb-0 pb-0 d-none" role="alert">
+                      <p>Got it! We're enabling your account to send rides now. We'll email you within 24 business hours once it's ready.</p>
+                      <p>While we do that, learn how to set up your account below.</p>
+                  </div>
+                  <h5 id="onboarding-header" class="h5 text-gray-800 font-weight-bold mb-1 d-none">Read the FAQs below to help set up your account</h5>
+                  <p id="onboarding-subtext" class="onboarding-faq d-none mb-3"><small>The last thing we need is to enable your account so you can send rides. Click the green button below to tell us to enable your account.</small></p>
+                  <h5 id="more-info-header" class="h5 text-gray-800 font-weight-bold mb-1 d-none">Read the FAQs below for more information</h5>
+                  <p class="more-info-faq d-none mb-3"><small>After you review the FAQs, let us know what you'd like to do next.</small></p>
+                  <h5 id="sign-up-header" class="h5 text-gray-800 font-weight-bold mb-1 d-none">Read the FAQs below to help you sign up</h5>
+                  <p class="sign-up-faq d-none mb-3"><small>After you sign up, the last thing we need is to enable your account so you can send rides. Click below, after signing up, to tell us to enable your account.</small></p>
+                  
+                  <!-- Action Item Buttons -->
+                  <a id="ready-to-sign-up" href="#" class="btn btn-sm btn-success btn-icon-split more-info-faq d-none mr-2 mb-3">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="text">Ready to sign up?</span>
+                  </a>
+                  <a id="enable-account" href="#" class="btn btn-sm btn-success btn-icon-split sign-up-faq d-none mr-2 mb-4">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="text">Enable my account</span>
+                  </a>
+                  <a id="enable-account-from-onboarding" href="#" class="btn btn-sm btn-success btn-icon-split onboarding-faq d-none mr-2 mb-3">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-check"></i>
+                      </span>
+                      <span class="text">Enable my account</span>
+                  </a>
+                  <a id="get-in-touch" href="#" class="btn btn-sm btn-primary btn-icon-split more-info-faq d-none mr-2 mb-3">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-flag"></i>
+                      </span>
+                      <span class="text">Get in touch</span>
+                  </a>
+                  <div class="mb-2"></div><!-- End of Action Item Buttons -->
+              </div>
+            </div><!-- End of Page Headings -->
+
+            <!-- Intro Card -->
+            <div id="intro-card" class="row justify-content-md-center">
+              <div class="col-lg-10">
+                <div class="card shadow mb-4">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-lg-5">
+                        <div class="h5 font-weight-bold text-gray-800 mb-1">Concierge</div>
+                        <p class="text-gray-800 d-lg-inline-block d-none">Give rides to the people your organization cares about, whether it's customers, patients or guests. Concierge lets riders enjoy the Lyft experience without the Lyft app.</p>            
+                        <div class="my-4"></div>
+                        <small class="d-lg-inline-block d-none">What do you need next?</small>
+                        <div class="my-2"></div>
+                        <a href="#" class="btn btn-sm btn-primary btn-icon-split d-lg-inline-block d-none request-more-info" value="more information">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-flag"></i>
+                          </span>
+                          <span class="text">More information</span>
+                        </a>
+                        <div class="my-2"></div>
+                        <a href="#" class="btn btn-sm btn-warning btn-icon-split d-lg-inline-block d-none request-sign-up-help" value="sign up help">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-exclamation-triangle"></i>
+                          </span>
+                          <span class="text">Help with sign up</span>
+                        </a>  
+                        <div class="my-2"></div>                          
+                        <a href="#" class="btn btn-sm btn-success btn-icon-split d-lg-inline-block d-none request-set-up-help" value="onboarding help">
+                            <span class="icon text-white-50">
+                              <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Set up my account</span>
+                        </a>
+                      </div>
+                      <div class="col-lg-7">
+                          <iframe src="https://fast.wistia.net/embed/iframe/lyumqq5zb8?seo=false&amp;videoFoam=true" title="Lyft Concierge video" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" webkitallowfullscreen="webkitallowfullscreen" oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen" width="100%" height="300"></iframe>
+                          <div class="my-4"></div>
+                          <small class="d-lg-none">What do you need next?</small>
+                          <div class="my-2"></div>
+                          <a href="#" class="btn btn-sm btn-primary btn-icon-split d-lg-none request-more-info" value="more information">
+                            <span class="icon text-white-50">
+                              <i class="fas fa-flag"></i>
+                            </span>
+                            <span class="text">More information</span>
+                          </a>
+                          <div class="my-2"></div>
+                          <a href="#" class="btn btn-sm btn-warning btn-icon-split d-lg-none request-sign-up-help" value="sign up help">
+                            <span class="icon text-white-50">
+                              <i class="fas fa-exclamation-triangle"></i>
+                            </span>
+                            <span class="text">Help with sign up</span>
+                          </a>  
+                          <div class="my-2"></div>                          
+                          <a href="#" class="btn btn-sm btn-success btn-icon-split d-lg-none request-set-up-help" value="onboarding help">
+                              <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                              </span>
+                              <span class="text">Set up my account</span>
+                          </a>
+                      </div>                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End of Intro Card -->
+
+            <!-- Help Page -->
+            <div id="help-page-wrapper" class="d-none">
+              <!-- More Info -->
+              <div class="row justify-content-md-center more-info-faq d-none">
+                  <div class="col-lg-10">
+                    <!-- Affordability FAQS -->
+                    <div id="affordability-faqs" class="card shadow mb-4">
+                        <div class="card-body">                        
+                          <h4 class="text-gray-800 mb-2 font-weight-bold">Affordability</h4>
+                          <!-- Ride Cost -->
+                          <div class="card shadow mb-3">
+                              <a href="#ride-cost-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="ride-cost-faq-card">
+                                <h6 class="m-0 font-weight-bold text-primary">How much do rides cost in my area?</h6>
+                              </a>
+                              <div class="collapse" id="ride-cost-faq-card">
+                                <div class="card-body">
+                                  <p>Use our <a href="https://www.lyft.com/rider/fare-estimate" target="_blank">Fare Estimator</a> to see exactly how much rides might cost in your area.</p>
+                                </div>
+                              </div>
+                          </div><!-- End of Ride Cost -->
+                          <!-- Billing -->
+                          <div class="card shadow mb-3">
+                            <a href="#billing-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="billing-faq-card">
+                              <h6 class="m-0 font-weight-bold text-primary">How does payment work?</h6>
+                            </a>
+                            <div class="collapse" id="billing-faq-card">
+                              <div class="card-body">
+                                  <p>We have two different options: automatically charged per-ride on a credit card or invoiced monthly.</p>
+                                  <h5 class="text-gray-800">Automatic per-ride charges</h5>
+                                  <p>Automatic per-ride charges means that the Concierge rides will be charged to the specific branch's assigned credit card on a per-ride basis after each ride is completed. Each ride appears as a separate transaction on the credit card statement.</p>
+                                  <p>Each of your organization's branches can have a different credit card assigned to each, or one central credit card as the primary payment method.</p>
+                                  <h5 class="text-gray-800">Monthly invoicing</h5>
+                                  <p>In order to be elidge for monthly invoicing, we require a minimum spend of $5,000 per month. Monthly invoicing also cannot be selected for individual branches — the invoice will include the total rides for all branches within Concierge for your organization.</p>
+                                  <p>Please contact us below if you would like to set up monthly invoicing.</p>
+                                  <a id="monthly-invoice" href="https://support.lyftbusiness.com/hc/en-us/requests/new?ticket_form_id=360000152967" target="_blank" class="btn btn-sm btn-primary btn-icon-split">
+                                      <span class="icon text-white-50">
+                                        <i class="fas fa-arrow-right"></i>
+                                      </span>
+                                      <span class="text">Contact us</span>
+                                    </a>
+                              </div>
+                            </div>
+                          </div><!-- End of Billing -->
+                          <!-- Track Spending -->
+                          <div class="card shadow mb-3">
+                            <a href="#track-spending-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="track-spending-faq-card">
+                              <h6 class="m-0 font-weight-bold text-primary">How can we track our spending?</h6>
+                            </a>
+                            <div class="collapse" id="track-spending-faq-card">
+                              <div class="card-body">
+                                <p>You can track it via the 'Reports' tab under Concierge in the Lyft Business Portal. There you'll have reporting for all dispatched rides each month, specific to each of your organization's Concierge branches.</p>
+                                <p>You can also get daily or weekly summaries emailed to you to keep track of how much your organization is spending.</p>
+                              </div>
+                            </div>
+                          </div><!-- End of Track Spending -->
+                          <!-- Nonprofits -->
+                          <div class="card shadow mb-3">
+                              <a href="#nonprofit-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="nonprofit-faq-card">
+                                <h6 class="m-0 font-weight-bold text-primary">Are there discounts for nonprofits?</h6>
+                              </a>
+                              <div class="collapse" id="nonprofit-faq-card">
+                                <div class="card-body">
+                                  We currently do not have any discounts for nonprofit organizations.
+                                </div>
+                              </div>
+                          </div><!-- End of Nonprofits -->
+
+                        </div>
+                    </div><!-- End of Affordability FAQS -->
+                    <!-- Accessibility FAQS -->
+                    <div id="accessibility-faqs" class="card shadow mb-4">
+                      <div class="card-body">                        
+                        <h4 class="text-gray-800 mb-2 font-weight-bold">Accessibility</h4>
+                        <!-- Pick up time -->
+                        <div class="card shadow mb-3">
+                          <a href="#pick-up-eta-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="pick-up-eta-faq-card">
+                            <h6 class="m-0 font-weight-bold text-primary">Is Lyft available in my area?</h6>
+                          </a>
+                          <div class="collapse" id="pick-up-eta-faq-card">
+                            <div class="card-body">
+                              <p>We cover 96% of the United States with pick up times of 15-minute or less. In most cities, our average pick up time is 3-5 minutes.</p>
+                              <p>If you're hoping to send rides to/from a very rural facility, please tell us the state and county you work in by clicking the button below.</p>
+                              <p>We'll check on the pick up times and let you know our availability.</p>
+                              <a id="check-availability" href="#" class="btn btn-sm btn-primary btn-icon-split">
+                                  <span class="icon text-white-50">
+                                    <i class="fas fa-arrow-right"></i>
+                                  </span>
+                                  <span class="text">Check availability</span>
+                                </a>
+                            </div>
+                          </div>
+                        </div><!-- End of Pick up time -->
+                        <!-- Phone -->
+                        <div class="card shadow mb-3">
+                          <a href="#phone-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="phone-faq-card">
+                            <h6 class="m-0 font-weight-bold text-primary">What if someone doesn't have a mobile phone?</h6>
+                          </a>
+                          <div class="collapse" id="phone-faq-card">
+                            <div class="card-body">
+                              <p>No problem. If the phone number is a land-line, it will receive an automated voice call notifying the patient the ride is on it's way.</p>
+                              <p>If you want to send these riders a Flexible Ride, you can send it to their land-line phone. When they call 1-800-836-LYFT, it will request their ride and they're ready to go.</p>
+                              <p>Also, you can always have these riders call you directly to coordinate the ride. While on the phone you can order the ride and tell the rider the pick up details.</p>
+                            </div>
+                          </div>
+                        </div><!-- End of Phone -->
+                        <!-- Schedule rides -->
+                        <div class="card shadow mb-3">
+                            <a href="#schedule-ride-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="schedule-ride-faq-card">
+                              <h6 class="m-0 font-weight-bold text-primary">Can we pre-schedule rides?</h6>
+                            </a>
+                            <div class="collapse" id="schedule-ride-faq-card">
+                              <div class="card-body">
+                                <p>Yep, you can pre-schedule a ride for your patients up to 7 days in advance.</p>
+                                <p>Another ride scheduling option is called, Flexible Ride.</p>
+                                <p>When sending a Flexible Ride the patient gets a text message. Inside the text message is a link. Whenever the patient clicks on the link (within a 24-hour window), they can get a ride to their destination.</p>
+                                <p>Clinics often use Flexible Rides for when there is a long time window when a patient might need a ride, like when patients are discharged from their appointment.</p>
+                              </div>
+                            </div>
+                          </div><!-- Schedule rides -->                          
+                      </div>
+                    </div><!-- End of Accessibility FAQS -->
+                    <!-- Healthcare FAQs -->
+                    <div id="healthcare-faqs" class="card shadow mb-4">
+                        <div class="card-body">
+                          <!-- Healthcare -->
+                          <h4 class="text-gray-800 mb-2 font-weight-bold">Healthcare</h4>
+                          <!-- Extra help -->
+                          <div class="card shadow mb-3">
+                              <a href="#patient-help-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="patient-help-faq-card">
+                                <h6 class="m-0 font-weight-bold text-primary">What if our patients need extra help in and out of the vehicle?</h6>
+                              </a>
+                              <div class="collapse" id="patient-help-faq-card">
+                                <div class="card-body">
+                                  <p>We provide rides for ambulatory patients. If they just need a little help in and out of the car, we can totally do that.</p>
+                                  <p>If you have a patient that need an extra hand, we recommend leaving a note for the driver when you schedule the ride. (Here's <a href="https://youtu.be/7I51fTlxnT4?t=110" target="_blank">a video</a> showing exactly how to do that.)</p>
+                                </div>
+                              </div>
+                            </div><!-- End of Extra help -->
+                            <!-- Wheel chair -->
+                            <div class="card shadow mb-3">
+                              <a href="#wheelchair-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="wheelchair-faq-card">
+                                <h6 class="m-0 font-weight-bold text-primary">Do you have wheelchair accessible vehicles?</h6>
+                              </a>
+                              <div class="collapse" id="wheelchair-faq-card">
+                                <div class="card-body">
+                                  <p>We can accommodate wheelchairs and walkers that can safely and securely fit in the trunk or backseat of the car without obstructing the driver's view.</p>
+                                  <p>To do this, we recommend leaving a note for the driver when you schedule the ride. (Here's <a href="https://youtu.be/7I51fTlxnT4?t=110" target="_blank">a video</a> showing exactly how to do that.)</p>                        
+                                </div>
+                              </div>
+                            </div><!-- End of Wheel chair -->
+                            <!-- Insurance -->
+                            <div class="card shadow mb-3">
+                                <a href="#insurance-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="insurance-faq-card">
+                                  <h6 class="m-0 font-weight-bold text-primary">Can we get reimbursed through insurance?</h6>
+                                </a>
+                                <div class="collapse" id="insurance-faq-card">
+                                  <div class="card-body">
+                                    <p>This is currently not available.</p>
+                                  </div>
+                                </div>
+                            </div><!-- End of Insurance -->
+                            <!-- Compliance & HIPPA -->
+                            <div class="card shadow mb-3">
+                                <a href="#compliance-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="compliance-faq-card">
+                                  <h6 class="m-0 font-weight-bold text-primary">How do you handle compliance and HIPAA?</h6>
+                                </a>
+                                <div class="collapse" id="compliance-faq-card">
+                                  <div class="card-body">
+                                    <p>Lyft is committed to ensuring that we’re always taking the necessary steps to comply with HIPAA.</p>
+                                    <p>We train employees who support the healthcare business on HIPAA and on Healthcare Fraud, Waste and Abuse as required by state healthcare programs and commercial insurance payers.</p>
+                                    <p>We also have signed HIPAA business associate agreements (BAAs) with healthcare partners, who are covered entities.</p> 
+                                  </div>
+                                </div>
+                              </div><!-- End of Compliance & HIPPA -->                            
+                        </div>
+                      </div><!-- End of Healthcare FAQs -->
+                      <!-- Other FAQs -->
+                      <div id="other-faqs" class="card shadow mb-4">
+                        <div class="card-body">
+                            <!-- Other -->
+                            <h4 class="text-gray-800 mb-2 font-weight-bold">Other</h4>
+                            <div class="card shadow mb-3">
+                                <a href="#onboarding-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="onboarding-faq-card">
+                                  <h6 class="m-0 font-weight-bold text-primary">How will my team and I learn to use it?</h6>
+                                </a>
+                                <div class="collapse" id="onboarding-faq-card">
+                                  <div class="card-body">
+                                    <p>We provide you with our onboarding tutorial videos that teach you step-by-step how to send your first rides.</p>
+                                    <p>You can bookmark them <a href="https://www.youtube.com/playlist?list=PL8dEm5tZMcriimSyYRPs8luLS9Q0GImhT" target="_blank">here</a>.</p>
+                                  </div>
+                                </div>
+                            </div><!-- End of Onboarding -->
+                            <!-- One pagers -->
+                            <div class="card shadow mb-3">
+                              <a href="#one-pager-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="one-pager-faq-card">
+                                <h6 class="m-0 font-weight-bold text-primary">Do you have any materials I can share with my team?</h6>
+                              </a>
+                              <div class="collapse" id="one-pager-faq-card">
+                                <div class="card-body">
+                                <p>Yep! You can browse and download any of our one-pagers <a href="https://drive.google.com/open?id=1lXgpEsX8vbuoo2Hw9vnL5fxjMYXoHaoh" target="_blank">here</a>.</p>
+                                <p>Also, here's our <a href="https://youtu.be/LC8AIkB1s30" target="_blank">90-sec demo video</a> in case it's help to share as well.</p>
+                                </div>
+                              </div>
+                            </div><!-- End of One pagers -->
+                            <!-- How are the drivers vetted -->
+                            <div class="card shadow mb-3">
+                                <a href="#driver-vetting-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="driver-vetting-faq-card">
+                                  <h6 class="m-0 font-weight-bold text-primary">How are the drivers vetted?</h6>
+                                </a>
+                                <div class="collapse" id="driver-vetting-faq-card">
+                                  <div class="card-body">
+                                      <p>We screen every driver before they’re permitted to drive on our platform, starting with professional third-party background and DMV checks. Those checks include but
+                                      are not limited to:</p>
+                                      <ul>
+                                        <li>Social security number trace</li>
+                                        <li>Enhanced nationwide criminal search</li>
+                                        <li>County and federal court records</li>
+                                        <li>U.S. Department of Justice 50-state sex offender registry search</li>
+                                      </ul>
+                                      <p>We also screen each Lyft driver against Office of the Inspector General (OIG) and System for Award Management (SAM) exclusion lists, as well as each of the available state databases. This is done upon onboarding and continuously thereafter, and any driver who appears on an exclusion list will not be dispatched to any healthcare ride.</p>
+                                      <p>In addition, active Lyft drivers are subject to criminal screening through two of the top background check companies in the country and criminal monitoring through First Advantage. Checkr provides Lyft with background checks on all drivers prior to onboarding and at least each year thereafter and all active Lyft drivers are subject to continuous criminal monitoring through First Advantage.</p>
+                                  </div>
+                                </div>
+                              </div><!-- End of How are the drivers vetted -->
+                              <!-- API -->
+                              <div class="card shadow mb-3">
+                                  <a href="#api-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="api-faq-card">
+                                    <h6 class="m-0 font-weight-bold text-primary">Do you have an API?</h6>
+                                  </a>
+                                  <div class="collapse" id="api-faq-card">
+                                    <div class="card-body">
+                                      <p>Yep! Here is the <a href="https://www.lyft.com/developers/products/concierge-api" target="_blank">API Overview</a> and here are <a href="https://developer.lyft.com/docs" target="_blank">the docs</a>.</p>
+                                      <p>Also, here are two use cases for how other clients have used the API:</p>  
+                                      <ul>
+                                        <li><a href="https://lyftbusiness.com/customer-stories/hitch-health" target="_blank">Hitch Health</a></li>
+                                        <li><a href="https://lyftbusiness.com/customer-stories/roundtrip" target="_blank">Round Trip</a></li>
+                                      </ul>   
+                                    </div>
+                                  </div>
+                              </div><!-- End of API -->
+                        </div>
+                      </div><!-- End of Other FAQs -->
+                  </div>
+                </div><!-- End of More Info FAQs -->
+
+                <!-- Sign Up Help FAQs -->
+                <div class="row justify-content-md-center sign-up-faq d-none">
+                    <div class="col-lg-10">
+                      <div id="sign-up-instructions" class="card shadow mb-4">
+                          <div class="card-body"> 
+                            <h4 class="text-gray-800 mb-2 font-weight-bold">Sign Up Instructions</h4>
+                            <!-- Where do I sign up? -->
+                            <div class="card shadow mb-3">
+                                <a href="#where-sign-up-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="where-sign-up-faq-card">
+                                  <h6 class="m-0 font-weight-bold text-primary">Where do I sign up?</h6>
+                                </a>
+                                <div class="collapse" id="where-sign-up-faq-card">
+                                  <div class="card-body"> 
+                                      <p>Sign up at our website <a href="https://www.lyft.com/business/signup" target="_blank">here</a>.</p>
+                                  </div>
+                                </div>
+                            </div><!-- End of Where do I sign up? -->
+                            <!-- Log in -->
+                            <div class="card shadow mb-3">
+                                <a href="#login-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="login-faq-card">
+                                  <h6 class="m-0 font-weight-bold text-primary">Where do I log in?</h6>
+                                </a>
+                                <div class="collapse" id="login-faq-card">
+                                  <div class="card-body">
+                                      <p>Admins log in <a href="https://lyft.com/business/login" target="_blank">here</a>. Everyone else logs in <a href="https://lyft.com/dispatch/login" target="_blank">here</a>.</p>
+                                      <p>Please bookmark these pages if it'd be helpful.</p>
+                                      <iframe width="100%" height="315" src="https://www.youtube.com/embed/Y_w4LXIgxnA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                  </div>
+                                </div>
+                              </div><!-- End of Log in -->
+                            <!-- Password -->
+                            <div class="card shadow mb-3">
+                                <a href="#password-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="password-faq-card">
+                                  <h6 class="m-0 font-weight-bold text-primary">Where do I type in my password?</h6>
+                                </a>
+                                <div class="collapse" id="password-faq-card">
+                                  <div class="card-body">
+                                    <p>Our sign up and log in process doesn't use a password. :-)</p>
+                                    <p>Instead, it works like this:</p>
+                                    <ol>
+                                      <li>We have you enter your phone number or email.</li>
+                                      <li>We send you a verification code or link.</li>
+                                      <li>You enter the code or click on the link.</li>
+                                    </ol>
+                                    <p>After that, voila! You're inside the dashboard.</p>
+                                    <p>If needed, here's a video to guide you through <a href="https://youtu.be/Bma9XVJvo7Y" target="_blank">signing up</a> and another to help with <a href="https://youtu.be/Y_w4LXIgxnA" target="_blank">logging in</a>.</p>
+                                  </div>
+                                </div>
+                            </div><!-- End of Password -->
+                            <!-- Mobile Number -->
+                            <div class="card shadow mb-3">
+                                <a href="#mobile-number-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="mobile-number-faq-card">
+                                  <h6 class="m-0 font-weight-bold text-primary">I'd rather not use my mobile number at sign up.</h6>
+                                </a>
+                                <div class="collapse" id="mobile-number-faq-card">
+                                  <div class="card-body"> 
+                                      <p>Our sign up process requires text verification, so we do need a mobile number.</p>
+                                      <p>Your number isn't shared with anyone, it won't receive any ride notifications and it doesn't affect your personal Lyft app.</p>                          
+                                      <p>It's only used for log in verification.</p>
+                                  </div>
+                                </div>
+                            </div><!-- End of Mobile Number -->
+                            <!-- Team Phone Numbers -->
+                            <div class="card shadow mb-3">
+                              <a href="#team-phone-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="team-phone-faq-card">
+                                <h6 class="m-0 font-weight-bold text-primary">Does everyone need a mobile number to log in?</h6>
+                              </a>
+                              <div class="collapse" id="team-phone-faq-card">
+                                <div class="card-body">
+                                  <p>Nope! :-) Everyone else will sign up using just their email. </p>
+                                  <p>We only require account admins to add their mobile number.</p>                                         
+                                </div>
+                              </div>
+                            </div><!-- End of Team Phone Numbers -->
+                          </div>
+                      </div>
+                      <!-- Sign Up Issues -->
+                      <div id="sign-up-issues-faqs" class="card shadow mb-4">
+                          <div class="card-body"> 
+                            <h4 class="text-gray-800 mb-2 font-weight-bold">Sign Up Help</h4>
+                            <!-- Verification Link -->
+                            <div class="card shadow mb-3">
+                                <a href="#verification-link-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="verification-link-faq-card">
+                                  <h6 class="m-0 font-weight-bold text-primary">I can't find my verification email?</h6>
+                                </a>
+                                <div class="collapse" id="verification-link-faq-card">
+                                  <div class="card-body">
+                                      <p>If you can't locate it, please check your spam. If you can't find it there, please contact your IT Department. Ask them to whitelist emails from "Lyft" to avoid hidden emails in the future.</p>
+                                      <p>If you can't find it after 24 hours, you'll need a refreshed link. To get that, simply sign up again <a href="https://www.lyft.com/business/signup" target="_blank">here</a>.</p>
+                                  </div>
+                                </div>
+                            </div><!-- End of Verification Link -->
+                            <!-- Something went wrong message -->
+                            <div class="card shadow mb-3">
+                                <a href="#manual-build-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="manual-build-faq-card">
+                                  <h6 class="m-0 font-weight-bold text-primary">I got a "Something went wrong" message when I signed up?</h6>
+                                </a>
+                                <div class="collapse" id="manual-build-faq-card">
+                                  <div class="card-body">
+                                      <p>We can help! Here's what we need you to do:</p>
+                                      <ol>
+                                        <li>Fill out our <a href="https://go.lyftbusiness.com/accepted-terms-service" target="_blank">Terms of Service</a> (2-min).</li>
+                                        <li>After you fill it out, click, "Send" below. </li>
+                                      </ol>
+                                      <p>We'll set up your account manually and have it to you in the next 24 business hours.</p>
+                                      <a id="save-manual-build" href="#" class="btn btn-sm btn-primary btn-icon-split">
+                                        <span class="icon text-white-50">
+                                          <i class="fas fa-paper-plane"></i>
+                                        </span>
+                                        <span class="text">Send</span>
+                                      </a>
+                                  </div>
+                                </div>
+                            </div><!-- End of Something went wrong message -->
+                            <!-- Sign Up Complete -->
+                            <div class="card shadow mb-3">
+                                <a href="#enable-account-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="enable-account-faq-card">
+                                  <h6 class="m-0 font-weight-bold text-primary">I finished signing up! What's next?</h6>
+                                </a>
+                                <div class="collapse" id="enable-account-faq-card">
+                                  <div class="card-body">
+                                      <p>Great! The last thing we need to do is manually enable your account.</p>
+                                      <p>To do that, please click the green, "Sign up done!" button above.</p>
+                                  </div>
+                                </div>
+                            </div><!-- End of Sign Up Complete -->
+                          </div>
+                      </div><!-- End of Sign Up Issues -->
+                  </div>
+                </div><!-- End of Sign Up Help FAQs -->
+
+                <!-- Onboarding Help FAQs -->
+                <div class="row justify-content-md-center onboarding-faq d-none">
+                    <div class="col-lg-10">
+                      <!-- Onboarding Insturctions -->
+                      <div id="onboarding-instructions" class="card shadow mb-4">
+                          <div class="card-body"> 
+                              <h4 class="text-gray-800 mb-2 font-weight-bold">Onboarding Guide</h4>
+                              
+                                <!-- Set Up Branch -->
+                                <div class="card shadow mb-3">
+                                  <a href="#branch-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="branch-faq-card">
+                                    <h6 class="m-0 font-weight-bold text-primary">How do I create a branch?</h6>
+                                  </a>
+                                  <div class="collapse" id="branch-faq-card">
+                                    <div class="card-body">
+                                        <p>To set up a branch, check out this tutorial:</p>
+                                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/SJ_g9iDi7H4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                  </div>
+                                </div><!-- End of Set Up Branch -->
+                                <!-- Send rides -->
+                                <div class="card shadow mb-3">
+                                    <a href="#send-ride-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="send-ride-faq-card">
+                                      <h6 class="m-0 font-weight-bold text-primary">How do I send a ride?</h6>
+                                    </a>
+                                    <div class="collapse" id="send-ride-faq-card">
+                                      <div class="card-body">
+                                          <p>To learn how to send a ride, watch this tutorial:</p>
+                                          <iframe width="100%" height="315" src="https://www.youtube.com/embed/7I51fTlxnT4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                      </div>
+                                    </div>
+                                </div><!-- End of Send rides -->
+                                <!-- Admin -->
+                                <div class="card shadow mb-3">
+                                  <a href="#admin-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="admin-faq-card">
+                                    <h6 class="m-0 font-weight-bold text-primary">How do I make someone an admin?</h6>
+                                  </a>
+                                  <div class="collapse" id="admin-faq-card">
+                                    <div class="card-body">
+                                        <p>To make someone an admin, follow this section of this tutorial:</p>
+                                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/SJ_g9iDi7H4?start=297" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                  </div>
+                                </div><!-- End of Admin -->
+                                <!-- View Reports -->
+                                <div class="card shadow mb-3">
+                                  <a href="#reports-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="reports-faq-card">
+                                    <h6 class="m-0 font-weight-bold text-primary">Where can we track our spending?</h6>
+                                  </a>
+                                  <div class="collapse" id="reports-faq-card">
+                                    <div class="card-body">
+                                        <p>To learn how to keep track of your spending, follow this section of this tutorial:</p>
+                                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/YMfC0quNPn0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                  </div>
+                                </div><!-- End of View Reports -->
+                            </div>
+                        </div><!-- End of Onboarding Insturctions -->
+                        <!-- Onboarding Issues -->
+                        <div id="onboarding-instructions" class="card shadow mb-4">
+                            <div class="card-body"> 
+                                <h4 class="text-gray-800 mb-2 font-weight-bold">Onboarding Help</h4>
+                                <!-- Can't find Add Branch button -->
+                                <div class="card shadow mb-3">
+                                    <a href="#enable-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="enable-faq-card">
+                                      <h6 class="m-0 font-weight-bold text-primary">I can't find the "Add Branch" button?</h6>
+                                    </a>
+                                    <div class="collapse" id="enable-faq-card">
+                                      <div class="card-body">
+                                          <p>Firstly, make sure you are using "Chrome" as your browser.</p>
+                                          <p>If you're using Chrome and still don't see the "Add Branch" button, it's likely we just haven't enabled your account yet.</p>
+                                          <p>Tell us to enable your account by clicking the green "Enable my account" button near the top of this page.</p>
+                                      </div>
+                                    </div>
+                                </div><!-- End of Can't find Add Branch button -->
+                                <!-- Train Employees -->
+                                <div class="card shadow mb-3">
+                                    <a href="#train-employees-faq-card" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="train-employees-faq-card">
+                                      <h6 class="m-0 font-weight-bold text-primary">How can we train our employees?</h6>
+                                    </a>
+                                    <div class="collapse" id="train-employees-faq-card">
+                                      <div class="card-body">
+                                          <p>Most organizations provide employees with our onboarding tutorial videos.</p>
+                                          <p>The most helpful ones are <a href="https://youtu.be/Y_w4LXIgxnA" target="_blank">How to Log In</a> and <a href="https://youtu.be/7I51fTlxnT4" target="_blank">How to Send a Ride</a>.</p>
+                                      </div>
+                                    </div>
+                                </div><!-- End of Train Employees -->
+                            </div>
+                        </div><!-- End of Onboarding Issues -->
+                    </div>
+                </div><!-- End of Onboarding Help FAQs -->
+            </div><!-- End of Help Page -->
+       
+            <!-- Check Availability Modal -->
+            <div id="check-availability-modal" class="modal" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title font-weight-bold text-primary mt-1">Where do you want to check?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div id="completed-alert-check-availability" class="alert alert-success mx-3 mt-3 mb-0 d-none" role="alert">
+                      Got it. We will email you an answer within 24-business hours.
+                  </div>
+                  <div class="modal-body mx-3">
+                      <div id="state-input-group" class="input-group mb-3">
+                          <div class="row input-group-prepend">
+                            <span class="input-group-text">State</span>
+                          </div>
+                          <input id="state" type="text" class="form-control">
+                      </div>
+                      <div id="counties-input-group" class="input-group mb-3">
+                          <div class="row input-group-prepend">
+                            <span class="input-group-text">Counties</span>
+                          </div>
+                          <input id="counties" type="text" class="form-control">
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <a id="save-check-availability" href="#" class="btn btn-primary btn-icon-split">
+                          <span class="icon text-white-50">
+                            <i class="fas fa-paper-plane"></i>
+                          </span>
+                          <span class="text">Send</span>
+                      </a>
+                  </div>
+                </div>
+              </div>
+          </div><!-- Check Availability Modal -->
+
+          </div><!-- End of Page Content -->
+      </div><!-- End of Main Content -->   
+    </div><!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
+
+    <!-- Qualifying Questions Modal -->
+    <div id="qualifying-questions-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title font-weight-bold text-primary mt-1">Tell us about your organization...</h5>
+              <button id="need-message-exit" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body mx-3">
+                <p class="mb-1 pb-0">How many rides per week?</p>
+                <div id="ride-selection" class="btn-group btn-group-toggle" role="group">
+                    <button type="radio" class="btn btn-light ride-selection" name="ride-selection" value="1" checked>1</button>
+                    <button type="radio" class="btn btn-light ride-selection" name="ride-selection" value="2-5">2-5</button>
+                    <button type="radio" class="btn btn-light ride-selection" name="ride-selection" value="6-25">6-25</button>
+                    <button type="radio" class="btn btn-light ride-selection" name="ride-selection" value="26-50">26-50</button>
+                    <button type="radio" class="btn btn-light ride-selection" name="ride-selection" value="51+">51+</button>
+                </div>
+                <div class="my-4"></div>
+                <p class="mb-1 pb-0">When do you need to send your first rides?</p>
+                <div id="launch-selection" class="btn-group-toggle" role="group">
+                    <button type="radio" class="btn btn-light mb-2" name="launch-selection" value="today">Today!</button>
+                    <button type="radio" class="btn btn-light mb-2" name="launch-selection" value="this week">This week</button>
+                    <button type="radio" class="btn btn-light mb-2" name="launch-selection" value="2 weeks">Within 2 weeks</button>
+                    <button type="radio" class="btn btn-light mb-2" name="launch-selection" value="a month">Within a month</button>
+                    <button type="radio" class="btn btn-light mb-2" name="launch-selection" value="3 months">Within 3 months</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a id="save-more-info" href="#" class="btn btn-primary btn-icon-split d-none">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-paper-plane"></i>
+                    </span>
+                    <span class="text">Get more information</span>
+                </a>
+                <a id="save-sign-up-help" href="#" class="btn btn-primary btn-icon-split d-none">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-paper-plane"></i>
+                    </span>
+                    <span class="text">Get sign up help</span>
+                </a>
+                <a id="save-onboarding-help" href="#" class="btn btn-primary btn-icon-split d-none">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-paper-plane"></i>
+                    </span>
+                    <span class="text">Get help setting up my account</span>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div><!-- End of Qualifying Questions Modal -->
+      <!-- Get in Touch Modal -->
+      <div id="get-in-touch-modal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title font-weight-bold text-primary mt-1">Tell us what your looking for</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div id="completed-alert-get-in-touch" class="alert alert-success mx-3 mt-3 mb-0 d-none" role="alert">
+                  Good to go! We'll touch base soon.
+              </div>
+              <div class="modal-body mx-3">
+                  <textarea id="get-in-touch-response-input" class="col-12" rows="4"></textarea>
+                  <div class="mb-3"></div>
+              </div>
+              <div class="modal-footer">
+                  <a id="save-get-in-touch" href="#" class="btn btn-primary btn-icon-split">
+                      <span class="icon text-white-50">
+                        <i class="fas fa-paper-plane"></i>
+                      </span>
+                      <span class="text">Send</span>
+                  </a>
+              </div>
+            </div>
+          </div>
+      </div><!-- End of Get in Touch Modal -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.js"></script>
+    
+    <!-- Concierge script-->
+    <script src="js/concierge.js"></script>
+
+  </body>
+</html>

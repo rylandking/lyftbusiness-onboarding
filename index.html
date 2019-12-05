@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Lyft Business Onboarding</title>
+
+    <!-- Custom fonts for this template-->
+    <link
+      href="vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet" />
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <ul
+        class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+        id="accordionSidebar"
+      >
+        <!-- Sidebar - Brand -->
+        <a
+          class="sidebar-brand d-flex align-items-center justify-content-center"
+          href="index.html"
+        >
+          <div class="sidebar-brand-text mx-3">
+            <img
+              class="img-fluid px-3 px-sm-4 mt-4 mb-4"
+              style="width: 100px; "
+              src="img/lyft-logo-white.png"
+              alt=""
+            />
+          </div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0" />
+
+        <!-- Nav Item - Dashboard -->
+        <li id="index-nav" class="nav-item active">
+          <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Get Started</span></a
+          >
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider" />
+
+        <!-- Heading -->
+        <!-- <div class="sidebar-heading">
+          Products
+        </div> -->
+
+        <!-- Nav Item - Charts -->
+        <!-- <li class="nav-item">
+          <a class="nav-link font-weight-bold" href="business-profiles.html">
+              <i class="fas fa-fw fa-suitcase"></i>
+            <span>BUSINESS PROFILES</span></a
+          >
+        </li> -->
+
+        <!-- Nav Item - Charts -->
+        <!-- <li class="nav-item">
+          <a class="nav-link font-weight-bold" href="concierge.html">
+            <i class="fas fa-fw fa-headset"></i>
+            <span>CONCIERGE</span></a
+          >
+        </li> -->
+
+        <!-- Nav Item - Tables -->
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="credits.html">
+            <i class="fas fa-fw fa-coins"></i>
+            <span>CREDITS</span></a
+          >
+        </li> -->
+
+        <!-- Divider -->
+        <!-- <hr class="sidebar-divider d-none d-md-block" /> -->
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+          <nav
+            class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
+          >
+            <!-- Sidebar Toggle (Topbar) -->
+            <button
+              id="sidebarToggleTop"
+              class="btn btn-link d-md-none rounded-circle mr-3"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+              <div class="topbar-divider d-none d-sm-block"></div>
+
+              <!-- Nav Item - User Information -->
+              <li class="nav-item dropdown no-arrow">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="userDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                    <i class="fas fa-user-circle fa-2x"></i>
+                  </span>
+                    <span id="welcome" class="text-uppercase small font-weight-bold text-gray-600"></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <div id="who-riding">
+              <!-- Who will be riding? -->
+              <span class=" align-items-center mb-4">
+                  <h3 class="h3 text-gray-800 mb-3">Welcome! Who will be riding with Lyft?</h3>
+              </span>
+              <div class="row">
+                <!-- Employees -->
+                <div id="employee" class="col mb-4">
+                    <a href="#">
+                      <div class="card shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 11rem;" src="img/undraw_businesswoman_pc12.svg" alt="">
+                            </div>
+                            <div class="row no-gutters align-items-center justify-content-center">
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Employees or staff</div>
+                            </div>
+                        </div>
+                      </div>
+                    </a>
+                </div><!-- End of Employees -->
+                <!-- Customers -->
+                <div id="customer" class="col mb-4">
+                    <a href="#">
+                      <div class="card shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 15rem;" src="img/undraw_business_deal_cpi9.svg" alt="">
+                            </div>
+                            <div class="row no-gutters align-items-center justify-content-center">
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Customers or guests</div>
+                            </div>
+                        </div>
+                      </div>
+                    </a>
+                </div><!-- End of Customers -->   
+                <!-- Patients -->
+                <div id="patient" class="col mb-4">
+                    <a href="#">
+                      <div class="card shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 15rem;" src="img/undraw_medicine_b1ol.svg" alt="">
+                            </div>
+                            <div class="row no-gutters align-items-center justify-content-center">
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Patients</div>
+                            </div>
+                        </div>
+                      </div>
+                    </a>
+                </div><!-- End of Patients -->  
+                <!-- Students -->
+                <div id="student" class="col mb-4">
+                    <a href="#">
+                      <div class="card shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 15rem;" src="img/undraw_exams_g4ow.svg" alt="">
+                            </div>
+                            <div class="row no-gutters align-items-center justify-content-center">
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Students</div>
+                            </div>
+                        </div>
+                      </div>
+                    </a>
+                </div><!-- End of Students -->  
+                <!-- Event attendees -->
+                <div id="attendee" class="col mb-4">
+                    <a href="#">
+                      <div class="card shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 15rem;" src="img/undraw_Queue_j6ij.svg" alt="">
+                            </div>
+                            <div class="row no-gutters align-items-center justify-content-center">
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">Event attendees</div>
+                            </div>
+                        </div>
+                      </div>
+                    </a>
+                </div><!-- End of Event attendees -->                                        
+              </div>
+            </div><!-- End of Who will be riding? -->
+
+            
+              <div id="which-program" class="row mt-2 d-none">
+                <!-- Which Program? -->
+                <span class=" align-items-center ml-3 mb-4">
+                    <h3 class="h3 text-gray-800">Choose a program.</h3>
+                    <p class="text-gray-600 py-0 my-0">View the recommended option below.</p>
+                </span>
+                <!-- Recommended Program -->
+                <div id="recommended-program-wrapper" class="col-xl-12 mb-4">
+
+                </div><!-- End of Recommended Program -->
+                <!-- Business Profiles -->
+                <div id="business-travel-wrapper" class="col-xl-12 mb-4">
+                  <a href="#">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                      <div class="card-body">
+                        <div id="business-travel" class="row no-gutters d-none">
+                            <div class="col-lg-6 mb-2">
+                                <div class="card bg-success text-white shadow">
+                                  <div class="card-body ml-2 py-3">
+                                      <i class="fas fa-star"></i> Recommended
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="text-center">
+                                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 10rem;" src="img/undraw_businessman_97x4.svg" alt="">
+                            </div>
+                          <div class="col ml-3">
+                            <div class="h5 mb-0 font-weight-bold text-gray-800 mb-1">Business Travel</div>
+                            <p class="text-gray-800">Help your employees take and expense business rides with Lyft. Detailed monthly reports will give you full visibility into all business rides.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div><!-- End of Business Profiles -->
+                <!-- Concierge -->
+                <div id="concierge-wrapper" class="col-xl-12 mb-4">
+                    <a href="#">
+                      <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                          <div id="concierge" class="row no-gutters d-none">
+                              <div class="col-lg-6 mb-2">
+                                  <div class="card bg-primary text-white shadow">
+                                    <div class="card-body ml-2 py-3">
+                                        <i class="fas fa-star"></i> Recommended
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row no-gutters align-items-center">
+                              <div class="text-center">
+                                  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 10rem;" src="img/undraw_laravel_and_vue_59tp.svg" alt="">
+                              </div>
+                            <div class="col ml-3">
+                              <div class="h5 mb-0 font-weight-bold text-gray-800 mb-1">Concierge</div>
+                              <p class="text-gray-800">Give rides to the people your organization cares about, whether it's VIPs, patients, customers or collegues. Concierge lets riders enjoy the Lyft experience without the Lyft app.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                </div><!-- End of Concierge -->
+                <!-- Ride Credit -->
+                <div id="credits-wrapper" class="col-xl-12 mb-4">
+                    <a href="#">
+                      <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                          <div id="credits" class="row no-gutters d-none">
+                              <div class="col-lg-6 mb-2">
+                                  <div class="card bg-primary text-white shadow">
+                                    <div class="card-body ml-2 py-3">
+                                        <i class="fas fa-star"></i> Recommended
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row no-gutters align-items-center">
+                              <div class="text-center">
+                                  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 10rem;" src="img/undraw_city_driver_jh2h.svg" alt="">
+                              </div>
+                            <div class="col ml-3">
+                              <div class="h5 mb-0 font-weight-bold text-gray-800 mb-1">Ride Credit</div>
+                              <p class="text-gray-800">Monthly Lyft credits let you delight your people for commutes, late-night outings or other courtesy rides. Your organization sets the rules for price, time, location and vehicle features.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div><!-- End of Ride Credit -->  
+                  <!-- Event -->
+                  <div id="events-wrapper" class="col-xl-12 mb-4">
+                      <a href="#">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                          <div class="card-body">
+                            <div id="events" class="row no-gutters d-none">
+                                <div class="col-lg-6 mb-2">
+                                    <div class="card bg-primary text-white shadow">
+                                      <div class="card-body ml-2 py-3">
+                                          <i class="fas fa-star"></i> Recommended
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="text-center">
+                                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 10rem;" src="img/undraw_festivities_tvvj.svg" alt="">
+                                </div>
+                              <div class="col ml-3">
+                                <div class="h5 mb-0 font-weight-bold text-gray-800 mb-1">Event</div>
+                                <p class="text-gray-800">Impress your guests with discounted or fully covered rides to and from your event. Just choose your location and budget, and we’ll generate a custom event code for your guests to use on Lyft rides.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                  </div><!-- End of Event -->                           
+              </div><!-- End of Which Program? -->
+            
+          </div><!-- End of Page Content -->
+      </div><!-- End of Main Content -->   
+    </div><!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
+
+    <!-- Events Modal -->
+    <div id="event-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title font-weight-bold text-primary mt-1 ml-2">Events</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body mx-3">
+                <p>Click the button below to learn more and activate ride codes for your event.</p>
+            </div>
+            <div class="modal-footer">
+                <a id="save-event" href="https://www.lyft.com/events" class="btn btn-primary btn-icon-split">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-paper-plane"></i>
+                    </span>
+                    <span class="text">Get started</span>
+                </a>
+            </div>
+          </div>
+        </div>
+    </div><!-- Events Modal -->
+
+    <!-- Modal to collect account information -->
+    <div id="init-acct-info" class="modal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title font-weight-bold text-primary mt-1">Please enter your information</h5>
+            </div>
+            <div id="incomplete-form-alert" class="alert alert-danger mx-3 mt-3 mb-0 d-none" role="alert">
+                Please complete the form.
+            </div>
+            <div id="completed-form-alert" class="alert alert-success mx-3 mt-3 mb-0 d-none" role="alert">
+                Done! Thanks.
+            </div>
+            <div class="modal-body mx-3">
+                <div class="input-group mb-3">
+                    <div class="row input-group-prepend">
+                      <span class="input-group-text">First name</span>
+                    </div>
+                    <input id="first-name" type="text" class="form-control">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="row input-group-prepend">
+                      <span class="input-group-text">Email</span>
+                    </div>
+                    <input id="email" type="text" class="form-control">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="row input-group-prepend">
+                      <span class="input-group-text">Mobile number</span>
+                    </div>
+                    <input id="phone" type="text" class="form-control">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="row input-group-prepend">
+                      <span class="input-group-text">Company name</span>
+                    </div>
+                    <input id="company" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button id="save-init-acct-info" type="button" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </div>
+      </div><!-- End of Modal to collect account information -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.js"></script>
+
+    <!-- Concierge script-->
+    <script src="js/index.js"></script>
+
+  </body>
+</html>
