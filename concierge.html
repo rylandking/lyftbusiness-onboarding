@@ -831,12 +831,12 @@
           </div><!-- Check Availability Modal -->
 
           </div><!-- End of Page Content -->
-      </div><!-- End of Main Content -->   
-    </div><!-- End of Content Wrapper -->
-    <!-- End of Page Wrapper -->
+      	</div><!-- End of Main Content -->   
+    	</div><!-- End of Content Wrapper -->
+    	<!-- End of Page Wrapper -->
 
-    <!-- Qualifying Questions Modal -->
-    <div id="qualifying-questions-modal" class="modal" tabindex="-1" role="dialog">
+    	<!-- Qualifying Questions Modal -->
+   		<div id="qualifying-questions-modal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -889,50 +889,78 @@
       </div><!-- End of Qualifying Questions Modal -->
       <!-- Get in Touch Modal -->
       <div id="get-in-touch-modal" class="modal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title font-weight-bold text-primary mt-1">Tell us what your looking for</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div id="completed-alert-get-in-touch" class="alert alert-success mx-3 mt-3 mb-0 d-none" role="alert">
-                  Good to go! We'll touch base soon.
-              </div>
-              <div class="modal-body mx-3">
-                  <textarea id="get-in-touch-response-input" class="col-12" rows="4"></textarea>
-                  <div class="mb-3"></div>
-              </div>
-              <div class="modal-footer">
-                  <a id="save-get-in-touch" href="#" class="btn btn-primary btn-icon-split">
-                      <span class="icon text-white-50">
-                        <i class="fas fa-paper-plane"></i>
-                      </span>
-                      <span class="text">Send</span>
-                  </a>
-              </div>
-            </div>
-          </div>
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title font-weight-bold text-primary mt-1">Tell us what your looking for</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div id="completed-alert-get-in-touch" class="alert alert-success mx-3 mt-3 mb-0 d-none" role="alert">
+								Good to go! We'll touch base soon.
+						</div>
+						<div class="modal-body mx-3">
+								<textarea id="get-in-touch-response-input" class="col-12" rows="4"></textarea>
+								<div class="mb-3"></div>
+						</div>
+						<div class="modal-footer">
+							<a id="save-get-in-touch" href="#" class="btn btn-primary btn-icon-split">
+								<span class="icon text-white-50">
+									<i class="fas fa-paper-plane"></i>
+								</span>
+								<span class="text">Send</span>
+							</a>
+						</div>
+					</div>
+				</div>
       </div><!-- End of Get in Touch Modal -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
+			<!-- Scroll to Top Button-->
+			<a class="scroll-to-top rounded" href="#page-top">
+				<i class="fas fa-angle-up"></i>
+			</a>
+		</div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+			<!-- Bootstrap core JavaScript-->
+			<script src="vendor/jquery/jquery.min.js"></script>
+			<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+			<!-- Core plugin JavaScript-->
+			<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.js"></script>
-    
-    <!-- Concierge script-->
-    <script src="js/concierge.js"></script>
+			<!-- Custom scripts for all pages-->
+			<script src="js/sb-admin-2.js"></script>
+			
+			<!-- Concierge script-->
+			<script src="js/concierge.js"></script>
 
+			<!-- The core Firebase JS SDK is always required and must be listed first -->
+			<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+			
+			<!-- TODO: Add SDKs for Firebase products that you want to use
+				https://firebase.google.com/docs/web/setup#available-libraries -->
+				<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+				
+				<!-- Add firebase cloud functions -->
+				<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-functions.js"></script>
+			
+
+			<script>
+				// Your web app's Firebase configuration
+				var firebaseConfig = {
+					apiKey: "AIzaSyAwjwKRFqxvPEgL3274LfppYh1AYcA2b80",
+					authDomain: "lyftbusiness-help.firebaseapp.com",
+					databaseURL: "https://lyftbusiness-help.firebaseio.com",
+					projectId: "lyftbusiness-help",
+					storageBucket: "lyftbusiness-help.appspot.com",
+					messagingSenderId: "838701117329",
+					appId: "1:838701117329:web:420daf05ee65566b8bb430",
+					measurementId: "G-70LGK7B117"
+				};
+				// Initialize Firebase
+				firebase.initializeApp(firebaseConfig);
+				firebase.analytics();
+			</script>
   </body>
 </html>
