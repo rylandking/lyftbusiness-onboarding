@@ -21,9 +21,13 @@ let websiteResponse;
 let altOrgNameResponse;
 let webHookType;
 
-// Healthcare webhook
+// Corporate Travel webhook
 let urlOne = "https://hooks.slack.com/services/";
-let urlTwo = "T029A67TC/BR2LS110X/5LGTvEkYnLeAvZeLJfdg0EMj";
+let urlTwo = "T029A67TC/BR0BDV7CL/bWywJuS1w0bLKetiAbW14kFi";
+
+// const firebase = require("firebase");
+// // Required for side-effects
+// require("firebase/functions");
 
 // Firebase Config
 // const firebaseConfig = {
@@ -42,161 +46,9 @@ let urlTwo = "T029A67TC/BR2LS110X/5LGTvEkYnLeAvZeLJfdg0EMj";
 // Test GA event logging
 // analytics.logEvent('first_notification', { happened: 'today!' });
 
-// TO DO: If Slack notification has fired turn variable to true. Only fire if variable is false. Only send one notification per session.
-// TO DO: If lead will send >11 rides per week && wants to start in <1 month, notify the team to call.
-
-// postEnableAccount() - If lead needs account enabled, notify team.
-function postEnableAccount() {
-  $.ajax({
-    url: urlOne + urlTwo,
-    data: `{
-      "attachments": [
-          {
-              "mrkdwn_in": ["text"],
-              "color": "#70F8BA",
-              "pretext": "*✅ Enable Account*",
-              "fields": [
-                  {
-                    "value": "- ${firstName} at ${company}\n- ${email}\n- ${phone}",
-                    "short": false
-                  }
-              ],
-              "footer": "${rides} rides | ${launch}",
-          }
-      ]
-    }`,
-    type: "POST"
-  })
-    .done(function(reply) {
-      console.log("POST to Slack succeeded");
-    })
-    .fail(function(xhr, status, errorThrown) {
-      console.log("Error in POST to Slack: " + errorThrown.toString());
-    });
-}
-
-// postGetInTouch() - If lead says "Get in touch", notify team.
-function postGetInTouch() {
-  $.ajax({
-    url: urlOne + urlTwo,
-    data: `{
-      "attachments": [
-          {
-              "mrkdwn_in": ["text"],
-              "color": "#EFEA5A",
-              "pretext": "☎️ *Get in touch*",
-              "fields": [
-                  {
-                    "value": "- ${firstName} at ${company}\n- ${email}\n- ${phone}",
-                    "short": false
-                  }
-              ],
-              "footer": "${rides} rides | ${launch}",
-          }
-      ]
-    }`,
-    type: "POST"
-  })
-    .done(function(reply) {
-      console.log("POST to Slack succeeded");
-    })
-    .fail(function(xhr, status, errorThrown) {
-      console.log("Error in POST to Slack: " + errorThrown.toString());
-    });
-}
-
-// postReadySignUp() - If lead says "Ready to sign up", notify team.
-function postReadySignUp() {
-  $.ajax({
-    url: urlOne + urlTwo,
-    data: `{
-      "attachments": [
-          {
-              "mrkdwn_in": ["text"],
-              "color": "#6CD4FF",
-              "pretext": "*🥳 Ready to sign up*",
-              "fields": [
-                  {
-                    "value": "- ${firstName} at ${company}\n- ${email}\n- ${phone}",
-                    "short": false
-                  }
-              ],
-              "footer": "${rides} rides | ${launch}",
-          }
-      ]
-    }`,
-    type: "POST"
-  })
-    .done(function(reply) {
-      console.log("POST to Slack succeeded");
-    })
-    .fail(function(xhr, status, errorThrown) {
-      console.log("Error in POST to Slack: " + errorThrown.toString());
-    });
-}
-
-// postAvailability() - If lead asks for Lyft availability, notify team.
-function postAvailability() {
-  $.ajax({
-    url: urlOne + urlTwo,
-    data: `{
-      "attachments": [
-          {
-              "mrkdwn_in": ["text"],
-              "color": "#094D92",
-              "pretext": "*📍 Check pick up times*",
-              "fields": [
-                  {
-                    "value": "- ${countiesResponse} in ${stateResponse}",
-                    "short": false
-                  }
-              ],
-              "footer": "${firstName} | ${email} | ${phone}",
-          }
-      ]
-    }`,
-    type: "POST"
-  })
-    .done(function(reply) {
-      console.log("POST to Slack succeeded");
-    })
-    .fail(function(xhr, status, errorThrown) {
-      console.log("Error in POST to Slack: " + errorThrown.toString());
-    });
-}
-
-// postManualBuild() - If lead asks for manual account built, notify team.
-function postManualBuild() {
-  $.ajax({
-    url: urlOne + urlTwo,
-    data: `{
-      "attachments": [
-          {
-              "mrkdwn_in": ["text"],
-              "color": "#D00000",
-              "pretext": "*🛠 Manually build their account",
-              "fields": [
-                  {
-                    "value": "- ${firstName} at ${company}\n- ${email}\n- ${phone}",
-                    "short": false
-                  }
-              ],
-              "footer": "${rides} rides | ${launch}",
-          }
-      ]
-    }`,
-    type: "POST"
-  })
-    .done(function(reply) {
-      console.log("POST to Slack succeeded");
-    })
-    .fail(function(xhr, status, errorThrown) {
-      console.log("Error in POST to Slack: " + errorThrown.toString());
-    });
-}
-
 (function($) {
   "use strict"; // Start of use strict
+  console.log("where am I");
   window.addEventListener("load", function() {
     // Initialize Cloud Functions through Firebase
     var postHotLead = firebase.functions().httpsCallable("postHotLead");
@@ -217,7 +69,7 @@ function postManualBuild() {
     email = account.email;
     phone = account.phone;
     company = account.company;
-    webHookType = "corporateTravelUrl";
+    webHookType = "healthCare";
 
     $("#welcome").html("Welcome, " + firstName + "!");
 
@@ -269,15 +121,22 @@ function postManualBuild() {
       $("#qualifying-questions-modal").modal("show");
       $("#save-more-info").removeClass("d-none");
 
-      // Finish modal, show "more info" FAQs
+      // Finish modal, return to landing screen
       $("#save-more-info").on("click", function() {
-        $("#qualifying-questions-modal").modal("hide");
-        $("#intro-card").addClass("d-none");
+        $(".modal-header").addClass("d-none");
+        $(".qualifying-question").addClass("d-none");
+        $(".modal-footer").addClass("d-none");
+        $("#need-buttons").addClass("d-none");
 
-        $("#more-info-header").removeClass("d-none");
-        $("#help-page-wrapper").removeClass("d-none");
-        $(".more-info-faq").removeClass("d-none");
+        $(".modal-body").prepend(`
+        <div id="contact-request-confirmation" class="alert alert-success mx-3 my-3" role="alert">
+            Got it. Our team will call you within 24-business hours to help. You're all set.
+        </div>
+      `);
 
+        window.setTimeout(function() {
+          $("#qualifying-questions-modal").modal("hide");
+        }, 7500);
         postHotLead({
           need,
           email,
@@ -294,7 +153,7 @@ function postManualBuild() {
       });
 
       // Record "More info" in Google Analytics
-      gtag("event", "Concierge", {
+      gtag("event", "Business Travel", {
         event_category: "Need",
         event_label: "more info"
       });
@@ -309,13 +168,20 @@ function postManualBuild() {
 
       // Finish modal, show "more info" FAQs
       $("#save-sign-up-help").on("click", function() {
-        $("#qualifying-questions-modal").modal("hide");
-        $("#intro-card").addClass("d-none");
+        $(".modal-header").addClass("d-none");
+        $(".qualifying-question").addClass("d-none");
+        $(".modal-footer").addClass("d-none");
+        $("#need-buttons").addClass("d-none");
 
-        $("#sign-up-header").removeClass("d-none");
-        $("#help-page-wrapper").removeClass("d-none");
-        $(".sign-up-faq").removeClass("d-none");
+        $(".modal-body").prepend(`
+        <div id="contact-request-confirmation" class="alert alert-success mx-3 my-3" role="alert">
+            Got it. Our team will call you within 24-business hours to help. You're all set.
+        </div>
+      `);
 
+        window.setTimeout(function() {
+          $("#qualifying-questions-modal").modal("hide");
+        }, 7500);
         postHotLead({
           need,
           email,
@@ -332,7 +198,7 @@ function postManualBuild() {
       });
 
       // Record "Sign up help" in Google Analytics
-      gtag("event", "Concierge", {
+      gtag("event", "Business Travel", {
         event_category: "Need",
         event_label: "sign up help"
       });
@@ -347,13 +213,20 @@ function postManualBuild() {
 
       // Finish modal, show "more info" FAQs
       $("#save-onboarding-help").on("click", function() {
-        $("#qualifying-questions-modal").modal("hide");
-        $("#intro-card").addClass("d-none");
+        $(".modal-header").addClass("d-none");
+        $(".qualifying-question").addClass("d-none");
+        $(".modal-footer").addClass("d-none");
+        $("#need-buttons").addClass("d-none");
 
-        $("#onboarding-header").removeClass("d-none");
-        $("#help-page-wrapper").removeClass("d-none");
-        $(".onboarding-faq").removeClass("d-none");
+        $(".modal-body").prepend(`
+        <div id="contact-request-confirmation" class="alert alert-success mx-3 my-3" role="alert">
+            Got it. Our team will call you within 24-business hours to help. You're all set.
+        </div>
+      `);
 
+        window.setTimeout(function() {
+          $("#qualifying-questions-modal").modal("hide");
+        }, 7500);
         postHotLead({
           need,
           email,
@@ -370,7 +243,7 @@ function postManualBuild() {
       });
 
       // Record "Onboarding help" in Google Analytics
-      gtag("event", "Concierge", {
+      gtag("event", "Business Travel", {
         event_category: "Need",
         event_label: "onboarding help"
       });
@@ -391,7 +264,7 @@ function postManualBuild() {
       $(this).addClass("active");
 
       // Record "How many employees need rides" in Google Analytics
-      gtag("event", "Concierge", {
+      gtag("event", "Business Travel", {
         event_category: "How many employees need rides?",
         event_label: rides
       });
@@ -405,7 +278,7 @@ function postManualBuild() {
       $(this).addClass("active");
 
       // Record "When do you want to launch?" in Google Analytics
-      gtag("event", "Concierge", {
+      gtag("event", "Business Travel", {
         event_category: "When do you want to launch?",
         event_label: launch
       });

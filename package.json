@@ -36,8 +36,11 @@
         "chart.js": "2.8.0",
         "datatables.net-bs4": "1.10.19",
         "dotenv": "^8.2.0",
+        "firebase": "^7.6.1",
         "jquery": "3.4.1",
-        "jquery.easing": "^1.4.1"
+        "jquery.easing": "^1.4.1",
+        "request": "^2.88.0",
+        "request-promise": "^4.2.5"
     },
     "devDependencies": {
         "browser-sync": "2.26.7",
