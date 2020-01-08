@@ -21,10 +21,6 @@ let websiteResponse;
 let altOrgNameResponse;
 let webHookType;
 
-// Healthcare webhook
-let urlOne = "https://hooks.slack.com/services/";
-let urlTwo = "T029A67TC/BR2LS110X/5LGTvEkYnLeAvZeLJfdg0EMj";
-
 // Firebase Config
 // const firebaseConfig = {
 //   apiKey: 'AIzaSyAwjwKRFqxvPEgL3274LfppYh1AYcA2b80',
@@ -217,7 +213,7 @@ function postManualBuild() {
     email = account.email;
     phone = account.phone;
     company = account.company;
-    webHookType = "corporateTravelUrl";
+    webHookType = "healthCare";
 
     $("#welcome").html("Welcome, " + firstName + "!");
 

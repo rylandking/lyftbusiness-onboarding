@@ -997,5 +997,33 @@
     <!-- Concierge script-->
     <script src="js/bizTravelCredits.js"></script>
 
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+			<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+			
+			<!-- TODO: Add SDKs for Firebase products that you want to use
+				https://firebase.google.com/docs/web/setup#available-libraries -->
+				<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
+				
+				<!-- Add firebase cloud functions -->
+				<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-functions.js"></script>
+			
+
+			<script>
+				// Your web app's Firebase configuration
+				var firebaseConfig = {
+					apiKey: "AIzaSyAwjwKRFqxvPEgL3274LfppYh1AYcA2b80",
+					authDomain: "lyftbusiness-help.firebaseapp.com",
+					databaseURL: "https://lyftbusiness-help.firebaseio.com",
+					projectId: "lyftbusiness-help",
+					storageBucket: "lyftbusiness-help.appspot.com",
+					messagingSenderId: "838701117329",
+					appId: "1:838701117329:web:420daf05ee65566b8bb430",
+					measurementId: "G-70LGK7B117"
+				};
+				// Initialize Firebase
+				firebase.initializeApp(firebaseConfig);
+				firebase.analytics();
+			</script>
+
   </body>
 </html>

@@ -21,10 +21,6 @@ let websiteResponse;
 let altOrgNameResponse;
 let webHookType;
 
-// Corporate Travel webhook
-let urlOne = "https://hooks.slack.com/services/";
-let urlTwo = "T029A67TC/BR0BDV7CL/bWywJuS1w0bLKetiAbW14kFi";
-
 // const firebase = require("firebase");
 // // Required for side-effects
 // require("firebase/functions");
@@ -47,8 +43,7 @@ let urlTwo = "T029A67TC/BR0BDV7CL/bWywJuS1w0bLKetiAbW14kFi";
 // analytics.logEvent('first_notification', { happened: 'today!' });
 
 (function($) {
-  "use strict"; // Start of use strict
-  console.log("where am I");
+  "use strict"; // Start of use strict\
   window.addEventListener("load", function() {
     // Initialize Cloud Functions through Firebase
     var postHotLead = firebase.functions().httpsCallable("postHotLead");
@@ -69,7 +64,7 @@ let urlTwo = "T029A67TC/BR0BDV7CL/bWywJuS1w0bLKetiAbW14kFi";
     email = account.email;
     phone = account.phone;
     company = account.company;
-    webHookType = "healthCare";
+    webHookType = "corporateTravelUrl";
 
     $("#welcome").html("Welcome, " + firstName + "!");
 
