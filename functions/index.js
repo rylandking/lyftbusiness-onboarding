@@ -5,9 +5,9 @@
 const functions = require("firebase-functions");
 const healthcareUrl = functions.config().slack.healthcare_webhook;
 const corporateTravelUrl = functions.config().slack.corp_trav_webhook;
-const request = require("request");
+const requestPromise = require("request-promise");
 
-exports.postHotLead = functions.https.onCall((data, context) => {
+exports.postHotLead = functions.https.onCall(data => {
   const {
     need,
     email,
@@ -28,8 +28,9 @@ exports.postHotLead = functions.https.onCall((data, context) => {
   console.log("webHookType: " + webHookType);
   console.log("url: " + url);
 
-  return request.post({
+  return requestPromise({
     url: url,
+    method: "POST",
     body: `{
       "attachments": [
 				{
@@ -46,5 +47,13 @@ exports.postHotLead = functions.https.onCall((data, context) => {
 				}
       ]
     }`
-  });
+  })
+    .then(response => {
+      console.log("SUCCESS! Posted", response);
+      return response;
+    })
+    .catch(err => {
+      console.log("ERROR! Posting", err);
+      return null;
+    });
 });
